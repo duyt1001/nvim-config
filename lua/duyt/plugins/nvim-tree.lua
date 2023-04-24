@@ -17,15 +17,9 @@ nvimtree.setup({
   renderer = {
     icons = {
       glyphs = {
-        default = "📔",
-        modified = "●",
         folder = {
-          default = "📁", -- default folder icon
-          open = "📂", -- folder icon when open
-          empty = "📁", -- empty folder icon
-          empty_open = "📂", -- empty folder icon when open
-          arrow_closed = "➜", -- arrow when folder is closed
-          arrow_open = "⬇︎", -- arrow when folder is open
+          arrow_closed = "", -- arrow when folder is closed
+          arrow_open = "", -- arrow when folder is open
         },
       },
     },
