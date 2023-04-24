@@ -1,0 +1,8 @@
+require("duyt.plugins.nvim-tree")
+require("duyt.plugins.comment")
+require("duyt.plugins.telescope")
+require("duyt.plugins.nvim-cmp")
+require("duyt.plugins.lsp.mason")
+require("duyt.plugins.autopairs")
+require("duyt.plugins.treesitter")
+require("duyt.plugins.bufferline")
