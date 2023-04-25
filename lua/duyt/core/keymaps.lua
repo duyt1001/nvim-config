@@ -1,8 +1,21 @@
+local keymap = vim.keymap -- or consider vim.api.nvim_set_keymap for native lua
+local opts = { noremap = true, silent = true }
+
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
+
+
+--Remap space as leader key
+keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-local keymap = vim.keymap
-
+-- single x isn't worth yanking
 keymap.set("n", "x", '"_x') -- delete without yanking
 
 -- split windows
@@ -12,6 +25,10 @@ keymap.set("n", "<leader>sx", ":close<CR>") -- close split
 
 -- vim maxmizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+
+-- buffer navigation
+keymap.set("n", "<M-Left>", ":bprevious<CR>") -- previous buffer
+keymap.set("n", "<M-Right>", ":bnext<CR>") -- next buffer
 
 -- tab navigation
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- new tab

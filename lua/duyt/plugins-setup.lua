@@ -33,6 +33,9 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
+  -- colorscheme
+  -- use 'shaunsingh/solarized.nvim'
+
   use('christoomey/vim-tmux-navigator')
 
   use('szw/vim-maximizer')
