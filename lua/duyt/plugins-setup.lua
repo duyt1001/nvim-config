@@ -43,8 +43,14 @@ return packer.startup(function(use)
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
 
-  --devicons
+  -- devicons
   use("nvim-tree/nvim-web-devicons")
+
+  -- lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    --   requires = { 'nvim-tree/nvim-web-devicons', opt = true}
+  }
 
   -- nvim-telescope
   use("nvim-telescope/telescope-symbols.nvim")
@@ -62,14 +68,14 @@ return packer.startup(function(use)
   })
 
   -- autocompletion
-  use("hrsh7th/nvim-cmp") -- autocompletion engine
-  use("hrsh7th/cmp-buffer") -- source for text in buffer
-  use("hrsh7th/cmp-path") -- source for file system paths
+  -- use("hrsh7th/nvim-cmp") -- autocompletion engine
+  -- use("hrsh7th/cmp-buffer") -- source for text in buffer
+  -- use("hrsh7th/cmp-path") -- source for file system paths
 
   -- snippets
-  use("L3MON4D3/LuaSnip") -- snippet engine
-  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-  use("rafamadriz/friendly-snippets") -- useful snippets
+  -- use("L3MON4D3/LuaSnip") -- snippet engine
+  -- use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  -- use("rafamadriz/friendly-snippets") -- useful snippets
 
   -- lsp
   use("williamboman/mason.nvim") -- lsp installer
@@ -93,6 +99,11 @@ return packer.startup(function(use)
 
   -- bufferline
   use({"akinsho/bufferline.nvim", tag="*", requires='nvim-tree/nvim-web-devicons'})
+
+  -- gitsigns
+  use {'lewis6991/gitsigns.nvim',
+    -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

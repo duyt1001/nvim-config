@@ -3,4 +3,9 @@ if not status then
   return
 end
 
-bufferline.setup()
+-- `h bufferline-configuration` to see all options
+bufferline.setup {
+  options = {
+    numbers = "buffer_id",
+  }
+}
