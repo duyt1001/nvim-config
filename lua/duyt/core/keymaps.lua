@@ -9,11 +9,22 @@ local opts = { noremap = true, silent = true }
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Keys
+-- 	"D-" -- Cmd
+-- 	"C-" -- Ctrl
+-- 	"S-" -- Shift
+-- 	"M-" -- Alt/Opt
 
 --Remap space as leader key
 keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Visual mode to copy to clipboard
+-- Cmd-C doesn't work in iterm2; use iterm2 key binding to send Cmd-C partially work: it becomes cut instead of copy
+-- keymap.set("v", "<D-c>", '"+y', opts)
+keymap.set("v", "<M-c>", '"+y')
+keymap.set("v", "<C-c>", '"+y')
 
 -- single x isn't worth yanking
 keymap.set("n", "x", '"_x') -- delete without yanking
