@@ -4,11 +4,24 @@
 
 ## 前置依赖
 
-- **Neovim** >= 0.8
+- **Neovim** >= 0.10
 - **Git**
 - **make**（telescope-fzf-native 编译需要）
+- **[tree-sitter CLI](https://github.com/tree-sitter/tree-sitter)**（Treesitter 解析器编译需要）
+- **[ripgrep](https://github.com/BurntSushi/ripgrep)**（Telescope 全文搜索需要）
 - [Nerd Font](https://www.nerdfonts.com/) 字体（用于图标显示）
 - **Node.js**（LSP 服务器和 Copilot 需要）
+
+```bash
+# Ubuntu/Debian
+sudo apt install git make ripgrep
+
+# macOS
+brew install git make ripgrep tree-sitter tree-sitter-cli
+
+# WSL2 (Homebrew)
+brew install tree-sitter tree-sitter-cli ripgrep
+```
 
 ## 安装
 

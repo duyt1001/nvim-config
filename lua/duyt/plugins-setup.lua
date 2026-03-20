@@ -81,8 +81,8 @@ return packer.startup(function(use)
   -- use("rafamadriz/friendly-snippets") -- useful snippets
 
   -- lsp
-  use("williamboman/mason.nvim") -- lsp installer
-  use("williamboman/mason-lspconfig.nvim") -- lspconfig wrapper for mason.nvim
+  use("williamboman/mason.nvim") -- lsp/tool installer
+  use("williamboman/mason-lspconfig.nvim") -- lspconfig integration for mason.nvim
   use("neovim/nvim-lspconfig") -- collection of configurations for built-in lsp client
 
   -- github copilot
@@ -91,9 +91,7 @@ return packer.startup(function(use)
   -- treesitter
   use({
 	"nvim-treesitter/nvim-treesitter",
-	run = function()
-	  require("nvim-treesitter.install").update({with_sync = true})
-  	end,
+	run = ":TSUpdate",
   })
 
   -- autopairs
