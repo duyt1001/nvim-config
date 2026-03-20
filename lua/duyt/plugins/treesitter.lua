@@ -13,6 +13,7 @@ return {
         "svelte", "graphql", "bash", "lua",
         "python", "sql", "go", "vim",
         "dockerfile", "gitignore",
+        "terraform", "hcl", "helm",
       })
     end,
   },

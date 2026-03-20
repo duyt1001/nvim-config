@@ -166,10 +166,55 @@ brew install tree-sitter tree-sitter-cli ripgrep
 
 - `ts_ls` — TypeScript / JavaScript
 - `html` — HTML
-- `cssls` — CSS
-- `tailwindcss` — Tailwind CSS
+- `cssls` — CSS / SCSS / Less
 - `lua_ls` — Lua
-- `emmet_ls` — Emmet
+- `pyright` — Python
+- `gopls` — Go
+- `terraformls` — Terraform / HCL
+- `bashls` — Shell Script (Bash)
+- `yamlls` — YAML / Kubernetes
+- `jsonls` — JSON
+- `helm_ls` — Helm Charts
+- `dockerls` — Dockerfile
+- `docker_compose_language_service` — Docker Compose
+
+### 添加/更改 LSP 支持
+
+1. **查看可用的 LSP 服务器**：在 Neovim 中运行 `:Mason`，按 `2` 切换到 LSP 标签页浏览所有可用服务器。
+
+2. **添加新语言支持**：编辑 `lua/duyt/plugins/lsp/mason.lua`，在 `ensure_installed` 列表中添加服务器名称：
+
+   ```lua
+   ensure_installed = {
+     "ts_ls",
+     "html",
+     "cssls",
+     "tailwindcss",
+     "lua_ls",
+     "emmet_ls",
+     "pyright",       -- 新增：Python
+     "gopls",         -- 新增：Go
+   },
+   ```
+
+3. **重启 Neovim**，Mason 会自动安装新添加的服务器。也可以在 `:Mason` 界面中按 `i` 手动安装。
+
+4. **添加 Treesitter 语法支持**（可选）：如果需要新语言的语法高亮，编辑 `lua/duyt/plugins/treesitter.lua`，在 `install` 列表中添加语言名称。
+
+5. **常用 LSP 服务器参考**：
+
+   | 语言 | 服务器名称 |
+   |------|-----------|
+   | Python | `pyright` 或 `basedpyright` |
+   | Go | `gopls` |
+   | Rust | `rust_analyzer` |
+   | Java | `jdtls` |
+   | C/C++ | `clangd` |
+   | Docker | `dockerls` |
+   | YAML | `yamlls` |
+   | JSON | `jsonls` |
+
+   完整列表见 [mason-lspconfig 文档](https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers)。
 
 ## 格式化与代码检查
 
