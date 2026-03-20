@@ -198,3 +198,23 @@
 └── plugin/
     └── packer_compiled.lua         # Packer 自动生成
 ```
+
+## 常见问题
+
+### 图标显示为方块/菱形（◆）
+
+文件浏览器、状态栏、Buffer 标签页中的图标显示异常，通常是因为终端字体不是 Nerd Font。
+
+**解决方法：**
+
+1. 从 [Nerd Fonts](https://www.nerdfonts.com/font-downloads) 下载并安装字体，推荐：
+   - JetBrainsMono Nerd Font
+   - FiraCode Nerd Font
+   - Hack Nerd Font
+
+2. 在终端中设置字体：
+   - **iTerm2**：Preferences → Profiles → Text → Font → 选择 Nerd Font
+   - **Windows Terminal**：Settings → Profile → Appearance → Font face
+   - **GNOME Terminal**：Preferences → Profile → Custom font
+
+3. 重启终端即可。
