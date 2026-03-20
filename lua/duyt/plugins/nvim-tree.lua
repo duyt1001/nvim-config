@@ -44,7 +44,7 @@ return {
 
     vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-    -- Auto-close nvim-tree if it's the last window
+    -- Auto-close nvim-tree if it's the last window alongside one file window
     vim.api.nvim_create_autocmd("QuitPre", {
       callback = function()
         local tree_wins = {}
@@ -60,8 +60,21 @@ return {
           end
         end
         if #wins - #floating_wins - #tree_wins == 1 then
+          local cur_buf_name = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(0))
+          local in_tree = cur_buf_name:match("NvimTree_") ~= nil
+
           for _, w in ipairs(tree_wins) do
-            vim.api.nvim_win_close(w, true)
+            if vim.api.nvim_win_is_valid(w) then
+              vim.api.nvim_win_close(w, true)
+            end
+          end
+
+          -- When :q is issued from a tree window, the original target is gone
+          -- after closing; schedule a quit to close the remaining file window
+          if in_tree then
+            vim.schedule(function()
+              vim.cmd("quit")
+            end)
           end
         end
       end,
