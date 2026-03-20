@@ -73,7 +73,10 @@ return {
           -- after closing; schedule a quit to close the remaining file window
           if in_tree then
             vim.schedule(function()
-              vim.cmd("quit")
+              local ok, err = pcall(vim.cmd, "quit")
+              if not ok and err:match("E37") then
+                vim.api.nvim_err_writeln("E37: No write since last change (add ! to override)")
+              end
             end)
           end
         end
