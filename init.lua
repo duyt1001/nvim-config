@@ -1,5 +1,4 @@
-require("duyt.plugins-setup")
 require("duyt.core.options")
 require("duyt.core.keymaps")
 require("duyt.core.colorscheme")
-require("duyt.plugins")
+require("duyt.lazy-setup")

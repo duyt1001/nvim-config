@@ -1,6 +1,6 @@
 # Neovim 配置
 
-基于 Lua 的个人 Neovim 配置，使用 [packer.nvim](https://github.com/wbthomason/packer.nvim) 管理插件。
+基于 Lua 的个人 Neovim 配置，使用 [lazy.nvim](https://github.com/folke/lazy.nvim) 管理插件。
 
 ## 前置依赖
 
@@ -50,25 +50,25 @@ brew install tree-sitter tree-sitter-cli ripgrep
    nvim
    ```
 
-   首次启动时会自动安装 **packer.nvim**，随后通过 `:PackerSync` 安装所有插件。
+   首次启动时 **lazy.nvim** 会自动安装并下载所有插件。
 
 4. 插件安装完成后**重启 Neovim**。
 
 ## 更新插件
 
 ```vim
-:PackerSync
+:Lazy sync
 ```
 
 安装新插件、更新已有插件、移除未使用的插件。
 
-保存 `plugins-setup.lua` 时也会自动触发同步。
+也可以用 `:Lazy` 打开插件管理界面，查看状态和日志。
 
 ## 插件列表
 
 | 插件 | 说明 |
 |------|------|
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | 插件管理器 |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | 插件管理器 |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Lua 工具库 |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | 文件浏览器（自动打开） |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | 模糊搜索 |
@@ -168,7 +168,9 @@ brew install tree-sitter tree-sitter-cli ripgrep
 - `lua_ls` — Lua
 - `emmet_ls` — Emmet
 
-## 格式化与代码检查（通过 Mason 自动安装）
+## 格式化与代码检查
+
+格式化与代码检查工具可通过 `:Mason` 手动安装：
 
 - `prettier` — TypeScript / JavaScript 格式化
 - `stylua` — Lua 格式化
@@ -190,26 +192,23 @@ brew install tree-sitter tree-sitter-cli ripgrep
 ~/.config/nvim/
 ├── init.lua                        # 入口文件
 ├── lua/duyt/
-│   ├── plugins-setup.lua           # Packer 插件定义
+│   ├── lazy-setup.lua              # lazy.nvim 引导与加载
 │   ├── core/
 │   │   ├── options.lua             # 编辑器选项
 │   │   ├── keymaps.lua             # 快捷键绑定
 │   │   └── colorscheme.lua         # 配色方案
 │   └── plugins/
-│       ├── init.lua                # 插件加载入口
+│       ├── init.lua                # 独立插件（plenary, tmux-navigator 等）
 │       ├── autopairs.lua           # 自动括号配置
 │       ├── bufferline.lua          # Buffer 标签页配置
 │       ├── comment.lua             # 注释插件配置
 │       ├── gitsigns.lua            # Git 标记配置
 │       ├── lualine.lua             # 状态栏配置
-│       ├── nvim-cmp.lua            # 补全配置
 │       ├── nvim-tree.lua           # 文件浏览器配置
 │       ├── telescope.lua           # 模糊搜索配置
 │       ├── treesitter.lua          # Treesitter 配置
 │       └── lsp/
 │           └── mason.lua           # LSP/Mason 配置
-└── plugin/
-    └── packer_compiled.lua         # Packer 自动生成
 ```
 
 ## 常见问题

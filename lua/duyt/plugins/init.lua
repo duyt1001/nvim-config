@@ -1,10 +1,6 @@
-require("duyt.plugins.nvim-tree")
-require("duyt.plugins.comment")
-require("duyt.plugins.telescope")
--- require("duyt.plugins.nvim-cmp")
-require("duyt.plugins.lsp.mason")
-require("duyt.plugins.autopairs")
-require("duyt.plugins.treesitter")
-require("duyt.plugins.lualine")
-require("duyt.plugins.bufferline")
-require("duyt.plugins.gitsigns")
+return {
+  { "nvim-lua/plenary.nvim" },
+  { "christoomey/vim-tmux-navigator" },
+  { "szw/vim-maximizer" },
+  { "github/copilot.vim" },
+}
