@@ -25,6 +25,8 @@ brew install tree-sitter tree-sitter-cli ripgrep
 
 ## 安装
 
+支持 **macOS**、**Linux** 和 **WSL2**。
+
 1. **备份已有配置**（如有）：
 
    ```bash
@@ -82,6 +84,7 @@ brew install tree-sitter tree-sitter-cli ripgrep
 | [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) | tmux/vim 无缝窗口切换 |
 | [vim-maximizer](https://github.com/szw/vim-maximizer) | 最大化/还原分屏窗口 |
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | LSP/格式化/代码检查 安装器 |
+| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Mason 与 LSP 集成 |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP 客户端配置集合 |
 | [copilot.vim](https://github.com/github/copilot.vim) | GitHub Copilot |
 
@@ -161,7 +164,7 @@ brew install tree-sitter tree-sitter-cli ripgrep
 
 ## LSP 服务器（通过 Mason 自动安装）
 
-- `tsserver` — TypeScript / JavaScript
+- `ts_ls` — TypeScript / JavaScript
 - `html` — HTML
 - `cssls` — CSS
 - `tailwindcss` — Tailwind CSS
