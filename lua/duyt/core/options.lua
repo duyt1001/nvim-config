@@ -41,3 +41,7 @@ opt.splitright = true
 
 opt.iskeyword:append('-')
 
+--whitespace visibility
+opt.list = true
+opt.listchars = { tab = '→ ', trail = '·', nbsp = '␣' }
+
