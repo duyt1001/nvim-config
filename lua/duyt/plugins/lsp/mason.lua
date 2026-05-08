@@ -30,7 +30,9 @@ return {
           "dockerls",
           "docker_compose_language_service",
         },
-        automatic_enable = true,
+        automatic_enable = {
+          exclude = { "terraformls" },
+        },
       })
     end,
   },
