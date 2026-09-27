@@ -74,7 +74,7 @@ brew install tree-sitter tree-sitter-cli ripgrep
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Lua 工具库 |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | 文件浏览器（自动打开） |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | 模糊搜索 |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析 |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法解析、高亮与代码折叠 |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | 状态栏（solarized 主题） |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | Buffer 标签页 |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git 变更标记与行内 blame |
@@ -98,6 +98,14 @@ brew install tree-sitter tree-sitter-cli ripgrep
 |------|------|------|
 | `x` | Normal | 删除字符（不复制到寄存器） |
 | `Alt-c` / `Ctrl-c` | Visual | 复制到系统剪贴板 |
+
+### 诊断
+
+| 按键 | 模式 | 功能 |
+|------|------|------|
+| `Ctrl-w`，然后按 `d` | Normal | 显示光标所在行的诊断详情 |
+| `]d` | Normal | 跳到下一条诊断 |
+| `[d` | Normal | 跳到上一条诊断 |
 
 ### 分屏
 
@@ -161,6 +169,14 @@ brew install tree-sitter tree-sitter-cli ripgrep
 | `gcc` | Normal | 切换行注释 |
 | `gbc` | Normal | 切换块注释 |
 | `gc` | Visual | 切换选中区域注释 |
+
+### 代码折叠（Tree-sitter）
+
+| 按键 | 模式 | 功能 |
+|------|------|------|
+| `zo` | Normal | 展开光标所在的折叠块 |
+| `zc` | Normal | 折叠光标所在的代码块 |
+| `za` | Normal | 切换光标所在代码块的折叠状态 |
 
 ## LSP 服务器（通过 Mason 自动安装）
 
@@ -260,6 +276,18 @@ brew install tree-sitter tree-sitter-cli ripgrep
 ```
 
 ## 常见问题
+
+### Tree-sitter parser 已安装但代码没有高亮
+
+Tree-sitter 需要同时有 parser 和对应的 `highlights.scm` 查询文件。迁移插件管理器（例如从 Packer 换到 lazy.nvim）后，查询目录可能还留着指向旧 Packer 安装位置的失效链接。此时 parser 看似正常，但该语言没有 Tree-sitter 高亮。
+
+先运行 `:checkhealth nvim-treesitter` 检查 parser 和查询状态，再强制重装受影响的语言以重建查询文件：
+
+```vim
+:TSInstall! python
+```
+
+将 `python` 换成对应 parser 名称；Shell 文件通常使用 `bash`。安装完成后重新打开文件。普通的 `:TSInstall` 遇到已安装的 parser 会跳过，`!` 会强制重新安装。
 
 ### 图标显示为方块/菱形（◆）
 
