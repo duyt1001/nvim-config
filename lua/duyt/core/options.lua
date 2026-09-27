@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+-- Align Python closing brackets with the opening line.
+vim.g.python_indent = { closed_paren_align_last_line = false }
+
 --line number
 opt.number = true
 opt.relativenumber = true
